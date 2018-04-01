@@ -1,0 +1,8 @@
+light.dining_table_2:
+  hidden: true
+light.garden:
+  hidden: true
+light.hue_lightstrip_plus_1:
+  friendly_name: Master Bedroom
+light.master_bedroom:
+  hidden: true
