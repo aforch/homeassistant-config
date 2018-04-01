@@ -1,0 +1,21 @@
+hue_movie:
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: group.movie_lights 
+        brightness: 128
+        color_name: red
+
+all_off:
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.all_downstairs_lights
+
+normal_evening:
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: group.corner_lights
+        brightness_pct: 60
+        kelvin: 2800

@@ -1,0 +1,32 @@
+media_player.shield:
+  name:
+  platform: cast
+  unique_id: 0cd52c05-7dc4-e557-b1d7-1f3164d6e4bf
+media_player.living_room:
+  name: Google Home
+  platform: cast
+  unique_id: 1123c9be-76d6-e62b-9461-b19e9bb0732d
+light.garden:
+  name:
+  platform: hue
+  unique_id: 84:18:26:00:00:0d:02:2c-03
+light.dining_table:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:53:8d:4c-0b
+light.hue_lightstrip_plus_1:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:f4:85:26-0b
+light.corner:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:22:4b:35-0b
+light.corner_2:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:20:54:fb-0b
+light.living_room_3:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:47:a1:1c-0b

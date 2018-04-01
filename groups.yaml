@@ -1,0 +1,47 @@
+default_view:
+  entities:
+  - group.movie_lights
+
+movie_lights:
+  name: Movie
+  entities:
+    - light.corner
+    - light.corner_2
+    - light.dining_table
+
+all_downstairs_lights:
+  name: All Downstairs Lights
+  entities:
+    - light.corner
+    - light.corner_2
+    - light.living_room_3
+    - light.dining_table
+    - light.garden
+
+corner_lights:
+  name: Corner Lights
+  entities:
+    - light.corner
+    - light.corner_2
+
+living_room_lights:
+  name: Living Room Lights
+  entities: 
+    - light.corner
+    - light.corner_2
+    - light.living_room_3
+
+upstairs_lights:
+  name: Upstairs Lights
+  entities:
+    - light.hue_lightstrip_plus_1
+
+bedroom_lights:
+  name: Bedroom Lights
+  entities:
+    - light.hue_lightstrip_plus_1
+
+master_bedroom_lights:
+  name: Master Bedroom
+  entities:
+    - light.hue_lightstrip_plus_1
