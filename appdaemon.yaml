@@ -1,0 +1,16 @@
+log:
+  accessfile: /home/homeassistant/.homeassistant/appdaemon_logs/access.log
+  errorfile: /home/homeassistant/.homeassistant/appdaemon_logs/error.log
+  logfile: /home/homeassistant/.homeassistant/appdaemon_logs/appdaemon.log
+  log_generations: 3
+  log_size: 1000000
+appdaemon:
+  threads: 10
+  plugins:
+    HASS:
+      type: hass
+      ha_url: http://localhost:8123 
+      ha_key: !secret home_assistant_key
+hadashboard:
+ dash_url: http://192.168.1.203:5050
+ dash_dir: /home/homeassistant/.homeassistant/dashboards
