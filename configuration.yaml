@@ -59,6 +59,32 @@ sun:
 sensor:
   - platform: yr
 
+# Weather (darksky.io)
+#
+  -  platform: darksky
+     api_key: !secret forecast_io_api_key
+     update_interval: 300
+     monitored_conditions:
+       - summary
+       - icon
+       - nearest_storm_distance
+       - precip_type
+       - precip_intensity
+       - precip_probability
+       - temperature
+       - apparent_temperature
+       - dew_point
+       - wind_speed
+       - wind_bearing
+       - cloud_cover
+       - humidity
+       - pressure
+       - visibility
+       - ozone
+       - minutely_summary
+       - hourly_summary
+       - daily_summary
+
 # Text to speech
 tts:
   - platform: google
@@ -69,6 +95,22 @@ cloud:
 hue:
   bridges: 
     - host: 192.168.1.220
+
+# Example configuration.yaml entry
+#switch:
+#  - platform: template
+#    switches:
+#      garden:
+#        value_template: "{{ is_state('light.garden', 'on') }}"
+#        turn_on:
+#          service: light.turn_on
+#          data:
+#            entity_id: light.garden 
+#        turn_off:
+#          service: light.turn_off 
+#          data:
+#
+#            entity_id: light.garden 
 
 group: !include groups.yaml
 automation: !include automations.yaml

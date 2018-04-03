@@ -1,1 +1,27 @@
-[]
+trigger:
+  platform: template 
+  value_template: "{% if is_state('light.garden', 'on') %}true{% endif %}" 
+condition:
+  condition: state
+  entity_id: light.garden
+  state: 'off'
+action:
+  - service: homeassistant.turn_off
+    entity_id: switch.handheld_remote_button_d
+  - service: light.turn_on
+    entity_id: light.garden
+#        data:
+#          rgb_color: [255,188,75]
+
+#trigger:
+#  platform: state
+#  value_template: "{% if is_state('light.garden', 'off') %}true{% endif %}" 
+#condition:
+#  condition: state
+#  entity_id: light.garden
+#  state: 'on'
+#action:
+#  - service: homeassistant.turn_off
+#    entity_id: switch.handheld_remote_button_d
+#  - service: light.turn_off
+#    entity_id: light.garden

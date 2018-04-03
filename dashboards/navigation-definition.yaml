@@ -4,6 +4,12 @@ home:
     icon_active: fa-home
     icon_inactive: fa-home
 
+lights:
+    widget_type: navigate
+    dashboard: "lights"
+    icon_active: mdi-lamp
+    icon_inactive: mdi-lamp 
+
 homesimple:
     widget_type: navigate
     dashboard: "lcd35-simple"
