@@ -1,0 +1,43 @@
+##
+## Main arguments, all optional
+##
+title: Main Panel
+widget_dimensions: [150, 150]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 5
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    devices:
+      media_player:
+        step: 5
+
+layout:
+    - light.corner, light.corner_2, light.dining_table, light.living_room_3, light.garden_2 
+    - light.hue_lightstrip_plus_1, script.all_off, script.normal_evening, script.hue_movie
+##    - clock(2x1), weather(2x1)
+
+clock:
+    widget_type: clock
+    time_format: 24hr
+    show_seconds: 0 
+    time_style: "color: yellow; font-size: 40pt; font-weight: bold;"
+    date_style: "font-size: 16pt; font-weight: bold;"
+
+weather:
+    widget_type: weather
+    units: "&deg;C"
+    sub_style: "font-size: 110%; font-weight: bold;"
+    main_style: "font-size: 75%; font-weight: bold;"
+    unit_style: "font-size: 250%;"
+
+forecast:
+    widget_type: sensor
+    title: Prognoza
+    title_style: "font-size: 14pt;"
+    text_style: "font-size: 16pt; font-weight: bold;"
+    precision: 0
+    entity: sensor.dark_sky_forecast_ro 
