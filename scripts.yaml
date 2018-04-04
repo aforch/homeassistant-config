@@ -24,4 +24,4 @@ reboot_pi:
 shutdown_pi:
   alias: Shutdown the Pi
   sequence:
-    - service: shell_command.shutdown
+    - service: shell_command.shutdownpi

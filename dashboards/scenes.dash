@@ -1,0 +1,27 @@
+## Main arguments, all optional
+##
+title: Scenes 
+widget_dimensions: [150, 150]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 5
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    #devices:
+    #  media_player:
+    #    step: 5
+
+layout:
+    - include: navigation-definition
+    - main_menu, script.all_off, script.normal_evening, script.hue_movie
+    - lights
+
+all_off:
+    widget_type: switch 
+    title: Downstairs Lights Off
+    title_style: "font-size: 14pt;"
+    text_style: "font-size: 16pt; font-weight: bold;"
+    precision: 0
