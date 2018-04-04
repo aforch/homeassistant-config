@@ -4,11 +4,31 @@ home:
     icon_active: fa-home
     icon_inactive: fa-home
 
+manage:
+    widget_type: navigate
+    dashboard: "manage"
+    icon_active: mdi-menu
+    icon_inactive: mdi-menu
+
 lights:
     widget_type: navigate
     dashboard: "lights"
     icon_active: mdi-lamp
     icon_inactive: mdi-lamp 
+    title: "Lighting"
+
+main_menu:
+    widget_type: navigate
+    dashboard: "main_menu"
+    icon_active: mdi-menu
+    icon_inactive: mdi-menu
+
+scenes:
+    widget_type: navigate
+    dashboard: "scenes"
+    icon_active: mdi-decagram
+    icon_inactive: mdi-decagram
+    title: "Scenes"
 
 homesimple:
     widget_type: navigate

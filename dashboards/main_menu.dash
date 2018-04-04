@@ -19,8 +19,9 @@ global_parameters:
 #    
 layout:
     - include: navigation-definition
-    - lights, clock(2x1), weather(2x1)
-
+    - manage, clock(2x1), weather(2x1)
+    - lights
+    - scenes
 clock:
     widget_type: clock
     time_format: 24hr

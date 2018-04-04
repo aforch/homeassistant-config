@@ -17,8 +17,11 @@ normal_evening:
       entity_id: group.corner_lights
       brightness_pct: 60
       kelvin: 2800
-toggle_garden:
+reboot_pi:
+  alias: Reboot the Pi
   sequence:
-  - service: light.toggle
-    data:
-      entity_id: light.garden_2
+    - service: shell_command.rebootpi
+shutdown_pi:
+  alias: Shutdown the Pi
+  sequence:
+    - service: shell_command.shutdown
