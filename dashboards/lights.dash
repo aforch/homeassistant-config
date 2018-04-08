@@ -18,5 +18,5 @@ global_parameters:
 layout:
     - include: navigation-definition
     - main_menu, light.corner, light.corner_2, light.dining_table, light.living_room_3
-    - scenes, light.hue_lightstrip_plus_1, light.garden_2 
+    - scenes, light.hue_lightstrip_plus_1, light.garden_2, light.floalt_panel_ws_30x90 
  

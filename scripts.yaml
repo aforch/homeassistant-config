@@ -5,6 +5,9 @@ hue_movie:
       entity_id: group.movie_lights
       brightness: 128
       color_name: red
+  - service: light.turn_off
+    data:  
+      entity_id: light.floalt_panel_ws_30x90 
 all_off:
   sequence:
   - service: light.turn_off

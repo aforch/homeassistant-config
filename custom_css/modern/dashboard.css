@@ -131,9 +131,9 @@ input {
   display: table-cell;
   vertical-align: middle;
   background-color: #444444;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;}
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;}
 
 .title {
   color: #fff;

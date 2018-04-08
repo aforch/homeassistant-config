@@ -17,6 +17,8 @@ homeassistant:
 
 # Show links to resources in log and frontend
 #introduction:
+logger:
+  default: debug 
 
 # Enables the frontend
 frontend:
@@ -26,7 +28,7 @@ config:
 
 http:
   # Secrets are defined in the file secrets.yaml
-  #api_password: !secret api_password 
+  #  api_password: !secret api_password 
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
 
@@ -61,6 +63,10 @@ sun:
 sensor:
   - platform: yr
 
+  - platform: template
+    sensors:
+      lr_playing:
+        value_template: ' {{states.media_player.living_room.attributes.media_title}}<br />{{states.media_player.living_room.attributes.media_artist}} '
 # Weather (darksky.io)
 #
   -  platform: darksky
@@ -97,6 +103,21 @@ cloud:
 hue:
   bridges: 
     - host: 192.168.1.220
+
+#camera:
+#  - platform: generic
+#    still_image_url: http://192.168.1.203:8123/api/media_player_proxy/media_player.living_room?token={{ states.media_player.living_room.attributes.token }}
+
+camera:
+  - platform: generic
+    still_image_url: >
+      {% if is_state('media_player.living_room', 'playing') %}
+        http://192.168.1.203:8123/api/media_player_proxy/media_player.living_room?token={{ states.media_player.living_room.attributes.token }}
+      {% elif is_state('media_player.living_room', 'paused') %}
+        http://192.168.1.203:8123/api/media_player_proxy/media_player.living_room?token={{ states.media_player.living_room.attributes.token }}
+      {% else %} 
+        https://png.icons8.com/ios/1600/google-play-music.png 
+      {% endif %}
 
 group: !include groups.yaml
 automation: !include automations.yaml

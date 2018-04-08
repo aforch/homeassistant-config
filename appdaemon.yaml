@@ -6,6 +6,8 @@ log:
   log_size: 1000000
 appdaemon:
   threads: 10
+  api_port: 5000
+  api_key: !secret ad_api_key
   plugins:
     HASS:
       type: hass

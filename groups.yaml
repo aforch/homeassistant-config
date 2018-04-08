@@ -17,6 +17,7 @@ all_downstairs_lights:
     - light.living_room_3
     - light.dining_table
     - light.garden
+    - light.floalt_panel_ws_30x90
 
 corner_lights:
   name: Corner Lights

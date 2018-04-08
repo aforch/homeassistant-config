@@ -6,3 +6,5 @@ light.hue_lightstrip_plus_1:
   friendly_name: Master Bedroom
 light.master_bedroom:
   hidden: true
+light.floalt_panel_ws_30x90:
+  friendly_name: Kitchen
