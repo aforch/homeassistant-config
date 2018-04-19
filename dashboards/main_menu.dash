@@ -17,8 +17,16 @@ global_parameters:
 layout:
     - include: navigation-definition
     - manage, clock(2x1), media_art(3x3), now_playing(2x1) 
-    - lights, weather(2x2)
+    - lights, weather(2x2), living_room 
     - scenes
+
+living_room:
+    widget_type: input_number
+    name: Goggle Home Volume
+    initial: 40
+    min: 0
+    max: 100
+    step: 1
 
 media_art:
     widget_type: camera
@@ -32,6 +40,15 @@ now_playing:
     text_style: "font-size: 14pt;"
     entity: sensor.lr_playing
 
+google_home_volume:
+    widget_type: input_number
+    name: Living Room Volume
+    initial: 0.3
+    min: 0.0
+    max: 1.0
+    step: 0.1
+    entity: automation.googlehome_volume 
+
 clock:
     widget_type: clock
     time_format: 24hr
@@ -42,9 +59,8 @@ clock:
 weather:
     widget_type: weather
     units: "&deg;C"
-    title_style: "font_size: 12pt;"
     sub_style: "font-size: 100%; font-weight: bold;"
-    main_style: "font-size: 75%; font-weight: bold;"
+    main_style: "font-size: 70%; font-weight: bold;"
     unit_style: "font-size: 100%;"
 
 forecast:

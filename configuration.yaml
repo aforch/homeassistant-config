@@ -56,6 +56,22 @@ logbook:
 # Enables a map showing the location of tracked devices
 map:
 
+device_tracker:
+  - platform: nmap_tracker
+    track_new_devices: no
+    hosts: 192.168.1.251
+
+nest:
+  client_id: !secret nest_client_id 
+  client_secret: !secret nest_client_secret
+
+#device_tracker:
+#  - platform: experiaboxv10
+#    host: 192.168.1.1
+#    username: user
+#    password: user 
+#    track_new_devices: yes 
+
 # Track the sun
 sun:
 
@@ -67,6 +83,13 @@ sensor:
     sensors:
       lr_playing:
         value_template: ' {{states.media_player.living_room.attributes.media_title}}<br />{{states.media_player.living_room.attributes.media_artist}} '
+
+  - platform: template
+    sensors:
+      living_room_vol:
+        value_template: "{{ states.media_player.living_room.attributes.volume_level }}"
+        friendly_name: Living Room Volume
+
 # Weather (darksky.io)
 #
   -  platform: darksky

@@ -8,3 +8,9 @@ light.master_bedroom:
   hidden: true
 light.floalt_panel_ws_30x90:
   friendly_name: Kitchen
+automation.googlehome_volume:
+  hidden: true
+automation.living_room_vol_set_input_number:
+  hidden: true
+device_tracker.adams_phone:
+  friendly_name: Adam's Phone

@@ -30,3 +30,7 @@ light.living_room_3:
   name:
   platform: hue
   unique_id: 00:17:88:01:03:47:a1:1c-0b
+climate.dining_room:
+  name:
+  platform: nest
+  unique_id: 58dGN4wVNFZ31ylBFA9dHCiL_kJJHV5I
