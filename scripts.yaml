@@ -8,11 +8,13 @@ hue_movie:
   - service: light.turn_off
     data:  
       entity_id: light.floalt_panel_ws_30x90 
+
 all_off:
   sequence:
   - service: light.turn_off
     data:
       entity_id: group.all_downstairs_lights
+
 normal_evening:
   sequence:
   - service: light.turn_on
@@ -25,11 +27,27 @@ normal_evening:
       entity_id: light.stairs
       brightness_pct: 50
       transition: 10
+
 reboot_pi:
   alias: Reboot the Pi
   sequence:
     - service: shell_command.rebootpi
+
 shutdown_pi:
   alias: Shutdown the Pi
   sequence:
     - service: shell_command.shutdownpi
+
+skip_forward:
+  alias: Skip Forward
+  sequence:
+  - service: media_player.media_next_track
+    data:
+      entity_id: media_player.living_room
+
+pause_music:
+  alias: Pause Music
+  sequence: 
+  - service: media_player.media_pause
+    data:
+      entity_id: media_player.living_room

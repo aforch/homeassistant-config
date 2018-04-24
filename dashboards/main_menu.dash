@@ -18,12 +18,24 @@ layout:
     - include: navigation-definition
     - manage, clock(2x1), media_art(3x3), now_playing(2x1) 
     - lights, weather(2x2), living_room (2x1)
-    - scenes
+    - scenes, pause_music, skip_forward
 
 living_room:
     widget_type: input_number
     title: Volume
     entity: input_number.google_home 
+
+skip_forward:
+    widget_type: script
+    icon_on: mdi-step-forward 
+    icon_off: mdi-step-forward
+    entity: script.skip_forward
+
+pause_music:
+    widget_type: script
+    icon_on: mdi-pause
+    icon_off: mdi-pause 
+    entity: script.pause_music
 
 media_art:
     widget_type: camera
@@ -35,16 +47,6 @@ now_playing:
     title: Now Playing
     title_style: "font-size: 10pt;"
     text_style: "font-size: 10pt; padding: 10px;"
-    entity: sensor.lr_playing
-
-google_home_volume:
-    widget_type: input_number
-    name: Living Room Volume
-    initial: 0.3
-    min: 0.0
-    max: 1.0
-    step: 0.1
-    entity: automation.googlehome_volume 
 
 clock:
     widget_type: clock
