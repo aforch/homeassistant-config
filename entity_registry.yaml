@@ -34,3 +34,11 @@ climate.dining_room:
   name:
   platform: nest
   unique_id: 58dGN4wVNFZ31ylBFA9dHCiL_kJJHV5I
+media_player.chrome:
+  name: Plex
+  platform: plex
+  unique_id: euilfndpr0fhj96ki9ppdstm
+media_player.shield_android_tv:
+  name:
+  platform: plex
+  unique_id: 554f0d47b7e784ab-com-plexapp-android

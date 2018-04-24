@@ -20,6 +20,11 @@ normal_evening:
       entity_id: group.corner_lights
       brightness_pct: 60
       kelvin: 2800
+  - service: light.turn_on
+    data:
+      entity_id: light.stairs
+      brightness_pct: 50
+      transition: 10
 reboot_pi:
   alias: Reboot the Pi
   sequence:

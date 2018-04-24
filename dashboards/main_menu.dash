@@ -17,16 +17,13 @@ global_parameters:
 layout:
     - include: navigation-definition
     - manage, clock(2x1), media_art(3x3), now_playing(2x1) 
-    - lights, weather(2x2), living_room 
+    - lights, weather(2x2), living_room (2x1)
     - scenes
 
 living_room:
     widget_type: input_number
-    name: Goggle Home Volume
-    initial: 40
-    min: 0
-    max: 100
-    step: 1
+    title: Volume
+    entity: input_number.google_home 
 
 media_art:
     widget_type: camera
@@ -36,8 +33,8 @@ media_art:
 now_playing:
     widget_type: sensor
     title: Now Playing
-    title_style: "font-size: 14pt;"
-    text_style: "font-size: 14pt;"
+    title_style: "font-size: 10pt;"
+    text_style: "font-size: 10pt; padding: 10px;"
     entity: sensor.lr_playing
 
 google_home_volume:

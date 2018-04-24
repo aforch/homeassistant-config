@@ -84,11 +84,11 @@ sensor:
       lr_playing:
         value_template: ' {{states.media_player.living_room.attributes.media_title}}<br />{{states.media_player.living_room.attributes.media_artist}} '
 
-  - platform: template
-    sensors:
-      living_room_vol:
-        value_template: "{{ states.media_player.living_room.attributes.volume_level }}"
-        friendly_name: Living Room Volume
+#  - platform: template
+#    sensors:
+#      living_room_vol:
+#        value_template: "{{ states.media_player.living_room.attributes.volume_level }}"
+#        friendly_name: Living Room Volume
 
 # Weather (darksky.io)
 #
@@ -141,6 +141,13 @@ camera:
       {% else %} 
         https://png.icons8.com/ios/1600/google-play-music.png 
       {% endif %}
+
+input_number:
+  google_home: 
+    name: Volume 
+    min: 0
+    max: 100
+    step: 1
 
 group: !include groups.yaml
 automation: !include automations.yaml

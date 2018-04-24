@@ -14,3 +14,9 @@ automation.living_room_vol_set_input_number:
   hidden: true
 device_tracker.adams_phone:
   friendly_name: Adam's Phone
+automation.set_google_home_slider_position:
+  hidden: true
+automation.set_google_home_volume:
+  hidden: true
+sensor.yr_symbol:
+  hidden: true

@@ -18,6 +18,7 @@ all_downstairs_lights:
     - light.dining_table
     - light.garden
     - light.floalt_panel_ws_30x90
+    - light.stairs
 
 corner_lights:
   name: Corner Lights
@@ -31,18 +32,35 @@ living_room_lights:
     - light.corner
     - light.corner_2
     - light.living_room_3
+    - light.stairs
 
 upstairs_lights:
   name: Upstairs Lights
   entities:
     - light.hue_lightstrip_plus_1
+    - light.guest_room
 
 bedroom_lights:
   name: Bedroom Lights
   entities:
     - light.hue_lightstrip_plus_1
+    - light.guest_room
 
 master_bedroom_lights:
   name: Master Bedroom
   entities:
     - light.hue_lightstrip_plus_1
+
+guest_room_lights:
+  name: Guest Room
+  entities:
+    - light.guest_room
+
+nest_stats:
+  name: Dining Room Stats
+  entities:
+    - sensor.dining_room_thermostat_humidity
+    - sensor.dining_room_thermostat_temperature
+    - sensor.dining_room_thermostat_target
+    - sensor.dining_room_thermostat_operation_mode
+    - sensor.dining_room_thermostat_hvac_state
