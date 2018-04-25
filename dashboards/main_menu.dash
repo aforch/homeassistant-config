@@ -18,7 +18,7 @@ layout:
     - include: navigation-definition
     - manage, clock(2x1), media_art(3x3), now_playing(2x1) 
     - lights, weather(2x2), living_room (2x1)
-    - scenes, pause_music, skip_forward
+    - scenes, play_music, skip_forward
 
 living_room:
     widget_type: input_number
@@ -27,9 +27,21 @@ living_room:
 
 skip_forward:
     widget_type: script
-    icon_on: mdi-step-forward 
-    icon_off: mdi-step-forward
+    icon_on: mdi-skip-forward 
+    icon_off: mdi-skip-forward
     entity: script.skip_forward
+
+skip_backward:
+    widget_type: script
+    icon_on: mdi-step-backward
+    icon_off: mdi-step-backward
+    entity: script.skip_backward
+
+play_music:
+    widget_type: script
+    icon_on: mdi-play-pause
+    icon_off: mdi-play-pause
+    entity: script.play_pause_music
 
 pause_music:
     widget_type: script
@@ -45,8 +57,9 @@ media_art:
 now_playing:
     widget_type: sensor
     title: Now Playing
-    title_style: "font-size: 10pt;"
-    text_style: "font-size: 10pt; padding: 10px;"
+    title_style: "font-size: 12pt;"
+    text_style: "font-size: 10pt; padding: 12px;"
+    entity: sensor.lr_playing
 
 clock:
     widget_type: clock

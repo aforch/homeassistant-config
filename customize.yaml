@@ -20,3 +20,24 @@ automation.set_google_home_volume:
   hidden: true
 sensor.yr_symbol:
   hidden: true
+sensor.lr_playing: {}
+light.tradfri_bulb_e14_ws_opal_400lm:
+  friendly_name: Stairs
+binary_sensor.dining_room_thermostat_fan:
+  hidden: true
+binary_sensor.dining_room_thermostat_is_locked:
+  hidden: true
+binary_sensor.dining_room_thermostat_is_using_emergency_heat:
+  hidden: true
+group.default_view:
+  hidden: true
+sensor.dining_room_thermostat_humidity:
+  friendly_name: Humidity
+sensor.dining_room_thermostat_temperature:
+  friendly_name: Temperature
+sensor.dining_room_thermostat_target:
+  friendly_name: Target Temp
+sensor.dining_room_thermostat_operation_mode:
+  friendly_name: Operating Mode
+sensor.dining_room_thermostat_hvac_state:
+  friendly_name: HVAC State

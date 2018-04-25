@@ -7,7 +7,7 @@ hue_movie:
       color_name: red
   - service: light.turn_off
     data:  
-      entity_id: light.floalt_panel_ws_30x90 
+      entity_id: light.floalt_panel_ws_30x90, light.stairs 
 
 all_off:
   sequence:
@@ -45,9 +45,31 @@ skip_forward:
     data:
       entity_id: media_player.living_room
 
+skip_backward:
+  alias: Skip Back
+  sequence:
+  - service: media_player.media_previous_track
+    data:
+      entity_id: media_player.living_room
+
+play_music:
+  alias: Play Music
+  sequence:
+  - service: media_player.media_play
+    data:
+      entity_id: media_player.living_room
+
 pause_music:
   alias: Pause Music
   sequence: 
   - service: media_player.media_pause
     data:
       entity_id: media_player.living_room
+
+play_pause_music:
+  alias: Play/Pause Music
+  sequence:
+  - service: media_player.media_play_pause
+    data:
+      entity_id: media_player.living_room
+
