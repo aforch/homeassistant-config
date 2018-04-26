@@ -11,7 +11,7 @@ light.garden:
   platform: hue
   unique_id: 84:18:26:00:00:0d:02:2c-03
 light.dining_table:
-  name:
+  name: Dining Table
   platform: hue
   unique_id: 00:17:88:01:03:53:8d:4c-0b
 light.hue_lightstrip_plus_1:
@@ -19,19 +19,19 @@ light.hue_lightstrip_plus_1:
   platform: hue
   unique_id: 00:17:88:01:03:f4:85:26-0b
 light.corner:
-  name:
+  name: Corner
   platform: hue
   unique_id: 00:17:88:01:03:22:4b:35-0b
 light.corner_2:
-  name:
+  name: Corner 2
   platform: hue
   unique_id: 00:17:88:01:03:20:54:fb-0b
 light.living_room_3:
-  name:
+  name: Living Room 3
   platform: hue
   unique_id: 00:17:88:01:03:47:a1:1c-0b
 climate.dining_room:
-  name:
+  name: Nest Thermostat
   platform: nest
   unique_id: 58dGN4wVNFZ31ylBFA9dHCiL_kJJHV5I
 media_player.chrome:
@@ -42,3 +42,31 @@ media_player.shield_android_tv:
   name:
   platform: plex
   unique_id: 554f0d47b7e784ab-com-plexapp-android
+media_player.chrome_2:
+  name:
+  platform: plex
+  unique_id: npflhwaeqd9epzqbfg5pq7tu
+light.stairs:
+  name: Stairs
+  platform: tradfri
+  unique_id: light-7e1c4d5204400122-65540
+light.kitchen:
+  name:
+  platform: tradfri
+  unique_id: light-7e1c4d5204400122-65538
+light.guest_room:
+  name: Guest Room
+  platform: tradfri
+  unique_id: light-7e1c4d5204400122-65541
+light.stairs_2:
+  name:
+  platform: tradfri
+  unique_id: group-7e1c4d5204400122-131076
+light.tradfri_group_2:
+  name:
+  platform: tradfri
+  unique_id: group-7e1c4d5204400122-131075
+light.tradfri_group:
+  name:
+  platform: tradfri
+  unique_id: group-7e1c4d5204400122-131074

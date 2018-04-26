@@ -1,7 +1,3 @@
-default_view:
-  entities:
-  - group.movie_lights
-
 movie_lights:
   name: Movie
   entities:
@@ -17,7 +13,7 @@ all_downstairs_lights:
     - light.living_room_3
     - light.dining_table
     - light.garden
-    - light.floalt_panel_ws_30x90
+    - light.kitchen
     - light.stairs
 
 corner_lights:
@@ -64,3 +60,15 @@ nest_stats:
     - sensor.dining_room_thermostat_target
     - sensor.dining_room_thermostat_operation_mode
     - sensor.dining_room_thermostat_hvac_state
+
+pi_hole:
+  name: PiHole Stats
+  entities:
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.pihole_dns_queries_cached
+    - sensor.pihole_dns_queries_forwarded
+    - sensor.pihole_dns_queries_today
+    - sensor.pihole_dns_unique_clients
+    - sensor.pihole_dns_unique_domains
+    - sensor.pihole_domains_blocked

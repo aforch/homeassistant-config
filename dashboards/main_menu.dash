@@ -51,7 +51,7 @@ pause_music:
 
 media_art:
     widget_type: camera
-    entity_picture: http://192.168.1.203:8123/api/camera_proxy/camera.generic_camera?token={{ states.media_player.living_room.attributes.access_token }}&api_password=ImNotTelling
+    entity_picture: http://192.168.1.152:8123/api/camera_proxy/camera.generic_camera?token={{ states.media_player.living_room.attributes.access_token }}&api_password=ImNotTelling
     refresh: 10
 
 now_playing:
@@ -71,9 +71,9 @@ clock:
 weather:
     widget_type: weather
     units: "&deg;C"
-    sub_style: "font-size: 100%; font-weight: bold;"
+    sub_style: "font-size: 90%; font-weight: bold;"
     main_style: "font-size: 70%; font-weight: bold;"
-    unit_style: "font-size: 100%;"
+    unit_style: "font-size: 90%;"
 
 forecast:
     widget_type: sensor

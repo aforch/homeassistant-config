@@ -84,7 +84,10 @@ sensor:
           {% else %} 
             Idle 
           {% endif %} 
-       
+  
+  - platform: pi_hole
+    host: 192.168.1.2
+    
 # Weather (darksky.io)
 #
   -  platform: darksky
@@ -130,9 +133,9 @@ camera:
   - platform: generic
     still_image_url: >
       {% if is_state('media_player.living_room', 'playing') %}
-        http://192.168.1.203:8123/api/media_player_proxy/media_player.living_room?token={{ states.media_player.living_room.attributes.token }}
+        http://192.168.1.152:8123/api/media_player_proxy/media_player.living_room?token={{ states.media_player.living_room.attributes.token }}
       {% elif is_state('media_player.living_room', 'paused') %}
-        http://192.168.1.203:8123/api/media_player_proxy/media_player.living_room?token={{ states.media_player.living_room.attributes.token }}
+        http://192.168.1.152:8123/api/media_player_proxy/media_player.living_room?token={{ states.media_player.living_room.attributes.token }}
       {% else %} 
         https://png.icons8.com/ios/1600/google-play-music.png 
       {% endif %}
@@ -143,6 +146,12 @@ input_number:
     min: 0
     max: 100
     step: 1
+
+input_boolean:
+  home_away_status:
+    name: Home/Away
+    initial: on
+    icon: mdi:home    
 
 group: !include groups.yaml
 automation: !include automations.yaml

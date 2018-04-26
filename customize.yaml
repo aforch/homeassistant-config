@@ -1,11 +1,14 @@
 light.dining_table_2:
   hidden: true
+  friendly_name: Dining Table
 light.garden:
   hidden: true
+  friendly_name: Garden
 light.hue_lightstrip_plus_1:
   friendly_name: Master Bedroom
 light.master_bedroom:
   hidden: true
+  friendly_name: Master Bedroom
 light.floalt_panel_ws_30x90:
   friendly_name: Kitchen
 automation.googlehome_volume:
@@ -20,7 +23,6 @@ automation.set_google_home_volume:
   hidden: true
 sensor.yr_symbol:
   hidden: true
-sensor.lr_playing: {}
 light.tradfri_bulb_e14_ws_opal_400lm:
   friendly_name: Stairs
 binary_sensor.dining_room_thermostat_fan:
@@ -41,3 +43,5 @@ sensor.dining_room_thermostat_operation_mode:
   friendly_name: Operating Mode
 sensor.dining_room_thermostat_hvac_state:
   friendly_name: HVAC State
+camera.generic_camera:
+  friendly_name: Media Art

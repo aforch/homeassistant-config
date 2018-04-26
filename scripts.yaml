@@ -1,4 +1,5 @@
 hue_movie:
+  alias: Movie Scene
   sequence:
   - service: light.turn_on
     data:
@@ -6,16 +7,28 @@ hue_movie:
       brightness: 128
       color_name: red
   - service: light.turn_off
-    data:  
-      entity_id: light.floalt_panel_ws_30x90, light.stairs 
-
-all_off:
+    data:
+      entity_id: light.kitchen, light.stairs
+all_downstairs_off:
+  alias: Downstairs Off 
   sequence:
   - service: light.turn_off
     data:
       entity_id: group.all_downstairs_lights
-
+all_upstairs_off:
+  alias: Upstairs Off
+  sequence:
+  - service: light.turn_off
+    data:
+      entity_id: group.upstairs_lights
+all_lights_off:
+  alias: All Off
+  sequence:
+  - service: light.turn_off
+    data:
+      entity_id: group.all_lights
 normal_evening:
+  alias: Evening Scene
   sequence:
   - service: light.turn_on
     data:
@@ -27,49 +40,54 @@ normal_evening:
       entity_id: light.stairs
       brightness_pct: 50
       transition: 10
-
 reboot_pi:
   alias: Reboot the Pi
   sequence:
-    - service: shell_command.rebootpi
-
+  - service: shell_command.rebootpi
 shutdown_pi:
   alias: Shutdown the Pi
   sequence:
-    - service: shell_command.shutdownpi
-
+  - service: shell_command.shutdownpi
 skip_forward:
   alias: Skip Forward
   sequence:
   - service: media_player.media_next_track
     data:
       entity_id: media_player.living_room
-
 skip_backward:
   alias: Skip Back
   sequence:
   - service: media_player.media_previous_track
     data:
       entity_id: media_player.living_room
-
 play_music:
   alias: Play Music
   sequence:
   - service: media_player.media_play
     data:
       entity_id: media_player.living_room
-
 pause_music:
   alias: Pause Music
-  sequence: 
+  sequence:
   - service: media_player.media_pause
     data:
       entity_id: media_player.living_room
-
 play_pause_music:
   alias: Play/Pause Music
   sequence:
   - service: media_player.media_play_pause
     data:
       entity_id: media_player.living_room
+away:
+  alias: Set Away Mode
+  sequence:
+  - service: light.turn_off
+    data:
+      entity_id: group.all_downstairs_lights, group.upstairs_lights
+  - service: climate.set_operation_mode 
+    data:
+      operation_mode: eco
+  - service: input_boolean.turn_off
+    data: 
+      entity_id: input_boolean.home_away_status
 

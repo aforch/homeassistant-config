@@ -1,0 +1,24 @@
+## Main arguments, all optional
+##
+title: Scenes 
+widget_dimensions: [98,120]
+widget_size: [1, 1]
+widget_margins: [2, 2]
+columns: 6
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    #devices:
+    #  media_player:
+    #    step: 5
+
+layout:
+    - include: navigation-definition
+    - light.corner, light.corner_2, light.dining_table, light.living_room_3, light.stairs, light.kitchen
+    - light.guest_room, light.master_bedroom
+    - light.garden_2
+    - script.normal_evening, script.all_downstairs_off, script.all_upstairs_off, script.all_lights_off, home_away_status
+    - media_art(2x2), now_playing(2x1), play_music, skip_forward
+    - living_room(3x1)

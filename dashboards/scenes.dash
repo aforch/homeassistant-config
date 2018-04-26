@@ -16,8 +16,8 @@ global_parameters:
 
 layout:
     - include: navigation-definition
-    - main_menu, script.all_off, script.normal_evening, script.hue_movie
-    - lights
+    - main_menu, script.all_downstairs_off, script.normal_evening, script.hue_movie
+    - lights, script.all_upstairs_off, script.all_lights_off
 
 all_off:
     widget_type: switch 
