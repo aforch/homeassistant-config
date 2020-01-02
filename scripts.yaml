@@ -1,3 +1,19 @@
+send_vacuum:
+  alias: Empty Vacuum
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      command: app_goto_target
+      params: [26500,25500]
+
+go_home_vac:
+  alias: Go Home Vac
+  sequence:
+  - service: vacuum.return_to_base
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+ 
 hue_movie:
   alias: Movie Scene
   sequence:
@@ -8,86 +24,246 @@ hue_movie:
       color_name: red
   - service: light.turn_off
     data:
-      entity_id: light.kitchen, light.stairs
+      entity_id: light.kitchen, light.stairs_3
+  - service: switch.turn_off
+    data:
+      entity_id: switch.magicmirror_display
+
 all_downstairs_off:
   alias: Downstairs Off 
   sequence:
   - service: light.turn_off
     data:
       entity_id: group.all_downstairs_lights
+  - service: switch.turn_off
+    data:
+      entity_id: switch.magicmirror_display
+  - service: switch.turn_off
+    data:
+      entity_id: switch.garden_lights
+  - service: light.turn_off
+    data:
+      entity_id: light.kitchen_light
+  - service: light.turn_off
+    data:
+      entity_id: light.0x00124b001d43d4f9_light
+  - service: light.turn_off
+    data:
+      entity_id: light.kitchen_leds
+
 all_upstairs_off:
   alias: Upstairs Off
   sequence:
   - service: light.turn_off
     data:
       entity_id: group.upstairs_lights
+
 all_lights_off:
   alias: All Off
   sequence:
   - service: light.turn_off
     data:
       entity_id: group.all_lights
+
 normal_evening:
   alias: Evening Scene
   sequence:
   - service: light.turn_on
     data:
-      entity_id: group.corner_lights
+      entity_id: group.living_room_lights 
       brightness_pct: 60
       kelvin: 2800
   - service: light.turn_on
     data:
-      entity_id: light.stairs
+      entity_id: light.stairs_3
       brightness_pct: 50
       transition: 10
-reboot_pi:
-  alias: Reboot the Pi
-  sequence:
-  - service: shell_command.rebootpi
-shutdown_pi:
-  alias: Shutdown the Pi
-  sequence:
-  - service: shell_command.shutdownpi
-skip_forward:
-  alias: Skip Forward
-  sequence:
-  - service: media_player.media_next_track
+  - service: homeassistant.turn_off
     data:
-      entity_id: media_player.living_room
-skip_backward:
-  alias: Skip Back
-  sequence:
-  - service: media_player.media_previous_track
+      entity_id: input_boolean.light_by_motion
+
+reset_lights:
+  alias: Reset Lights
+  sequence: 
+  - service: light.turn_on
     data:
-      entity_id: media_player.living_room
-play_music:
-  alias: Play Music
-  sequence:
-  - service: media_player.media_play
+      entity_id: group.living_room_lights
+      brightness_pct: 60
+      kelvin: 2800
+  - service: light.turn_on
     data:
-      entity_id: media_player.living_room
-pause_music:
-  alias: Pause Music
+      entity_id: light.dining_table 
+      brightness_pct: 60
+      kelvin: 2800
+  - service: light.turn_on
+    data: 
+      entity_id: light.kitchen_leds
+      brightness: 154
+      xy_color: [0.542,0.392]      
+fan_high:
+  alias: House Fan High
   sequence:
-  - service: media_player.media_pause
-    data:
-      entity_id: media_player.living_room
-play_pause_music:
-  alias: Play/Pause Music
+    - service: mqtt.publish
+      data:
+        topic: "home/house_fan/set"
+        payload: "high"
+fan_medium:
+  alias: House Fan Medium
   sequence:
-  - service: media_player.media_play_pause
+    - service: mqtt.publish
+      data:
+        topic: "home/house_fan/set"
+        payload: "medium"
+fan_low:
+  alias: House Fan Low
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "home/house_fan/set"
+        payload: "low"
+
+prusa_master_on:
+  sequence:
+    - service: homeassistant.turn_on
+      data:
+        entity_id: input_boolean.prusa_master
+
+prusa_master_off:
+  sequence:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: input_boolean.prusa_master
+
+#reboot_pi:
+#  alias: Reboot the Pi
+#  sequence:
+#  - service: shell_command.rebootpi
+#shutdown_pi:
+#  alias: Shutdown the Pi
+#  sequence:
+#  - service: shell_command.shutdownpi
+#skip_forward:
+#  alias: Skip Forward
+#  sequence:
+#  - service: media_player.media_next_track
+#    data:
+#      entity_id: media_player.living_room
+#skip_backward:
+#  alias: Skip Back
+#  sequence:
+#  - service: media_player.media_previous_track
+#    data:
+#      entity_id: media_player.living_room
+#play_playback:
+#  alias: Play
+#  sequence:
+#  - service: media_player.media_play
+#    data:
+#      entity_id: media_player.living_room
+#pause_playback:
+#  alias: Pause
+#  sequence:
+#  - service: media_player.media_pause
+#    data:
+#      entity_id: media_player.living_room
+#play_pause_playback:
+#  alias: Play/Pause
+#  sequence:
+#  - service: media_player.media_play_pause
+#    data:
+#      entity_id: media_player.living_room
+#away:
+#  alias: Set Away Mode
+#  sequence:
+#  - service: light.turn_off
+#    data:
+#      entity_id: group.all_downstairs_lights, group.upstairs_lights
+#  - service: climate.set_operation_mode 
+#    data:
+#      operation_mode: eco
+#  - service: input_boolean.turn_off
+#    data: 
+#      entity_id: input_boolean.home_away_status
+vacation_away:
+  alias: Set Vacation Away Mode
+  sequence:
+  - service: homeassistant.turn_on
     data:
-      entity_id: media_player.living_room
-away:
-  alias: Set Away Mode
+      entity_id: input_boolean.vacation_away
+
+nest_eco:
+  alias: Set Nest ECO mode
+  sequence:
+  - service: climate.set_operation_mode
+    data:
+      operation_mode: eco
+
+nest_heat:
+  alias: Set Nest HEAT mode
+  sequence:
+  - service: climate.set_operation_mode
+    data:
+      operation_mode: heat
+
+nest_off:
+  alias: Set Nest OFF mode
+  sequence:
+  - service: climate.set_operation_mode
+    data:
+      operation_mode: off
+
+porchlight_on:
+  alias: Turn On Porch Light
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.front_door
+
+porchlight_off:
+  alias: Turn Off Porch Light
   sequence:
   - service: light.turn_off
     data:
-      entity_id: group.all_downstairs_lights, group.upstairs_lights
-  - service: climate.set_operation_mode 
-    data:
-      operation_mode: eco
-  - service: input_boolean.turn_off
-    data: 
-      entity_id: input_boolean.home_away_status
+      entity_id: light.front_door
 
+lola_kitchen:
+  alias: Get out of the kitchen
+  sequence: 
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.downstairs_2
+      volume_level: 0.6
+  - service: tts.google_say
+    data:
+      entity_id: media_player.downstairs_2
+      message: 'Lola, get out of the kitchen'
+
+the_vacuum:
+  alias: The vacuum 
+  sequence:
+  - service: vacuum.start
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+  - service: homeassistant.turn_on
+    data:
+      entity_id: input_boolean.vacuum_ran
+
+cancel_vac:
+  alias: Cancel Vac
+  sequence:
+  - service: vacuum.stop
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+  - service: vacuum.return_to_base
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+
+welcome_lights_rear:
+  alias: Welcome Lights
+  sequence: 
+  - service: light.turn_on
+    data:
+      entity_id: light.dining_table
+  - service: switch.turn_on
+    data:
+      entity_id: switch.garden_lights 
