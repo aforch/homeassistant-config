@@ -1,0 +1,27 @@
+- platform: mqtt
+  name: Prusa Hotend Temp
+  unit_of_measurement: '°C'
+  state_topic: octoprint/temperature/tool0 
+  value_template: "{{ value_json.actual }}"
+
+- platform: mqtt
+  name: Prusa Bed Temp
+  unit_of_measurement: '°C'
+  state_topic: octoprint/temperature/bed
+  value_template: "{{ value_json.actual }}"
+
+- platform: mqtt
+  name: Printer State 
+  state_topic: octoprint/event/PrinterStateChanged
+  value_template: "{{ value_json.state_string }}"
+
+- platform: mqtt
+  name: Prusa GCODE Name
+  state_topic: octoprint/progress/printing
+  value_template: "{{ value_json.path }}"
+
+- platform: mqtt
+  name: Prusa Print Time
+  unit_of_measurement: '%'
+  state_topic: octoprint/progress/printing
+  value_template: "{{ value_json.progress }}"

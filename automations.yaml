@@ -1,25 +1,106 @@
 - alias: Set Google Home Slider Position
   trigger:
-    - platform: state
-      entity_id: media_player.living_room
+  - platform: state
+    entity_id: media_player.living_room
   condition:
-    - condition: template
-      value_template: "{{ not is_state_attr('media_player.living_room', 'volume_level', states('input_number.google_home') | int / 100) }}"
+  - condition: template
+    value_template: '{{ not is_state_attr(''media_player.living_room'', ''volume_level'',
+      states(''input_number.google_home'') | int / 100) }}'
   action:
-    - service: input_number.set_value
-      entity_id: input_number.google_home
-      data_template:
-        value: "{{ trigger.to_state.attributes.volume_level | multiply(100) | int }}"
-
+  - service: input_number.set_value
+    entity_id: input_number.google_home
+    data_template:
+      value: '{{ trigger.to_state.attributes.volume_level | multiply(100) | int }}'
+  id: d0fa61edc2bc480799ea426563ddcd70
 - alias: Set Google Home Volume
   trigger:
-    - platform: state
-      entity_id: input_number.google_home
+  - platform: state
+    entity_id: input_number.google_home
   condition:
-    - condition: template
-      value_template: "{{ not is_state_attr('media_player.living_room', 'volume_level', states('input_number.google_home') | int / 100) }}"
+  - condition: template
+    value_template: '{{ not is_state_attr(''media_player.living_room'', ''volume_level'',
+      states(''input_number.google_home'') | int / 100) }}'
   action:
-    - service: media_player.volume_set
-      entity_id: media_player.living_room
-      data_template:
-        volume_level: "{{ states('input_number.google_home') | int / 100 }}"
+  - service: media_player.volume_set
+    entity_id: media_player.living_room
+    data_template:
+      volume_level: '{{ states(''input_number.google_home'') | int / 100 }}'
+  id: 3cccf22ee85840069e99d0d882217750
+- alias: Fan - Select
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: sensor.fan_state
+    to: low
+  - platform: state
+    entity_id: sensor.fan_state
+    to: medium
+  - platform: state
+    entity_id: sensor.high
+    to: high
+  action:
+    service: input_select.select_option
+    entity_id: input_select.house_fan_mode
+    data_template:
+      option: "{% if is_state('sensor.fan_state', 'low') %}\n  low \n{% elif is_state('sensor.fan_state',\
+        \ 'medium') %} \n  medium\n{% elif is_state('sensor.fan_state', 'high') %}\n\
+        \  high\n{% endif %}\n"
+  id: 03614bcb65c1424e9bafa678ddc0fa83
+- alias: Fan Timer - Select
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: sensor.fan_state
+    to: low
+  action:
+    service: input_select.select_option
+    entity_id: input_select.house_fan_timer
+    data_template:
+      option: "{% if is_state('sensor.fan_state', 'low') %}\n  Off\n{% endif %}\n"
+  id: 2abd96d58db848abbbda58f2c444aecc
+- id: '1546369877052'
+  alias: Goodnight routine
+  trigger:
+  - platform: webhook
+    webhook_id: good-night-routine
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: homeassistant/automations/goodnight_routine
+- id: '1547918799979'
+  alias: Set Away Manual
+  trigger:
+  - platform: webhook
+    webhook_id: set-away-mode-manual
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.occupancy
+    service: homeassistant.turn_off
+- id: '1564595703679'
+  alias: Empty Vacuum
+  trigger:
+  - platform: webhook
+    webhook_id: vacuum_come_here
+  condition: []
+  action:
+  - service: script.send_vacuum
+- id: '1564597220946'
+  alias: Send Vacuum Home
+  trigger:
+  - platform: webhook
+    webhook_id: send_vacuum_home
+  condition: []
+  action:
+  - service: script.go_home_vac
+- id: '1573747762004'
+  alias: Make the Donuts
+  trigger:
+  - platform: webhook
+    webhook_id: make-the-donuts
+  condition: []
+  action: 
+  - service: mqtt.publish
+    data:
+      topic: homeassistant/automations/make_the_donuts

@@ -1,0 +1,9 @@
+- platform: ovapi
+  name: Bus 4 
+  timing_point_code: 54445370
+  show_future_departures: 2
+
+- platform: ovapi
+  name: Bus 3
+  timing_point_code: 54445380 
+  show_future_departures: 2

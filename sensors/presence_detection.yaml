@@ -1,0 +1,53 @@
+- platform: mqtt
+  state_topic: 'presence/ground_floor/adam_s_phone'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Adam Phone Ground Floor'
+
+- platform: mqtt
+  state_topic: 'presence/first_floor/adam_s_phone'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Adam Phone First Floor' 
+
+- platform: mqtt
+  state_topic: 'presence/ground_floor/adam_s_watch'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Adam Watch Ground Floor'
+
+- platform: mqtt
+  state_topic: 'presence/first_floor/adam_s_watch'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Adam Watch First Floor'
+ 
+- platform: mqtt
+  state_topic: 'presence/ground_floor/amy_s_phone'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Amy Phone Ground Floor'
+
+- platform: mqtt
+  state_topic: 'presence/first_floor/amy_s_phone'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Amy Phone First Floor'  
+
+- platform: min_max
+  name: "Home Occupancy Confidence of Adam" 
+  type: max
+  round_digits: 0
+  entity_ids:
+    - sensor.adam_phone_ground_floor
+    - sensor.adam_phone_first_floor
+    - sensor.adam_watch_ground_floor
+    - sensor.adam_watch_first_floor
+
+- platform: min_max
+  name: "Home Occupancy Confidence of Amy"
+  type: max
+  round_digits: 0
+  entity_ids:
+    - sensor.amy_phone_ground_floor
+    - sensor.amy_phone_first_floor
