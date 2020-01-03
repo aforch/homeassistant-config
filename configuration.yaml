@@ -12,8 +12,8 @@ homeassistant:
   time_zone: CET 
   # Customization file
   customize: !include customize.yaml
-  packages:
-    management: !include commands.yaml
+#  packages:
+#    management: !include commands.yaml
 
 weather:
   - platform: darksky
