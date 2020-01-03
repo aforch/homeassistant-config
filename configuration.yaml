@@ -33,12 +33,14 @@ logger:
     zigbee2mqtt_networkmap: debug
 
 recorder:
+  purge_keep_days: 1
   exclude:
     domains:
       - group
       - history_graph
       - media_player
     entities:
+      - sun.sun
       - sensor.date
       - sensor.time
       - sensor.date_time
@@ -87,13 +89,13 @@ notify:
 
   - name: Telegram_notifier
     platform: telegram
-    chat_id: 761874904
+    chat_id: !secret telegrambot_chat_id 
 # Enables a map showing the location of tracked devices
 telegram_bot:
   - platform: polling
-    api_key: 756026038:AAGCMDEFE_ZwBrqAVI3OFwk0vNUmSGSMvPs 
+    api_key: !secret telegrambot_api_key 
     allowed_chat_ids:
-      - 761874904 
+      - !secret telegrambot_chat_id
 map:
 
 device_tracker:
