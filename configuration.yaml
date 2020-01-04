@@ -438,52 +438,13 @@ vacuum:
 influxdb:
   host: 192.168.1.152
   include:
+    domains:
+      - sensor
+      - binary_sensor
+      - light
     entities:
-      - sensor.bathroom_humidity
-      - sensor.bathroom_temperature
       - climate.dining_room
-      - sensor.dining_room_thermostat_humidity
-      - sensor.dining_room_thermostat_hvac_state
-      - sensor.dining_room_thermostat_operation_mode
-      - sensor.dining_room_thermostat_target
-      - sensor.dining_room_thermostat_temperature
-      - sensor.adam_first_floor
-      - sensor.amy_first_floor
-      - sensor.adam_ground_floor
-      - sensor.amy_ground_floor
-      - sensor.home_occupancy_confidence_of_adam
-      - sensor.home_occupancy_confidence_of_amy
-      - sensor.fan_state
-      - binary_sensor.dining_room_thermostat_fan
-      - binary_sensor.dining_room_thermostat_has_leaf
-      - binary_sensor.dining_room_thermostat_is_locked
-      - binary_sensor.dining_room_thermostat_is_using_emergency_heat
-      - binary_sensor.dining_room_thermostat_online
-      - binary_sensor.front_door_contact
-      - binary_sensor.kitchen_window_contact
-      - binary_sensor.laundry_window_contact
-      - binary_sensor.living_room_door_contact
-      - binary_sensor.mi_motion_sensor_occupancy
-      - binary_sensor.office_window_contact
-      - sensor.kitchen_window_battery
-      - sensor.laundry_window_battery
-      - sensor.living_room_door_battery
-      - sensor.front_door_battery
-      - sensor.mi_motion_sensor_battery
-      - sensor.office_window_battery
-      - sensor.vacuum_battery
-      - sensor.vacuum_status
       - vacuum.xiaomi_vacuum_cleaner
-      - light.corner
-      - light.corner_2
-      - light.dining_table
-      - light.front_door
-      - light.guest_room_light
-      - light.kitchen_leds
-      - light.kitchen_light
-      - light.living_room_3
-      - light.master_bedroom_strip
-      - light.stairs_3
       - switch.garden_lights
       - switch.magicmirror_display
 
